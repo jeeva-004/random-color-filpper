@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Fliper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #box {
+            width: 300px;
+            height: 400px;
+            border: 2px solid hsl(0, 3%, 61%);
+            margin: 70px auto 0;
+            border-radius: 8px;
+        }
+
+        h3 {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 5px 25px;
+            border-radius: 8px;
+            border: 2px solid hsl(0, 3%, 61%);
+            background: linear-gradient(to right, hsl(212, 74%, 57%), hsl(305, 66%, 48%));
+            color: white;
+            font-weight: 550;
+            cursor: pointer;
+            transition: opacity 0.15s ease;
+        }
+
+        button:hover {
+            opacity: .9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <h3>#ffffff</h3>
+    </div>
+    <button>Change</button>
+
+    <script>
+        let btn = document.querySelector("button");
+        let box = document.getElementById("box");
+        let code = document.querySelector("h3");
+
+        code.style.fontWeight = "bold";
+
+        const hex_value = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F"];
+        let ran_index, color = "", hash = "#";
+
+        btn.addEventListener("click", function () {
+            color = "";
+            for (let i = 1; i <= 6; i++) {
+                color += hex_value[random_hex()];
+            }
+            color = hash + color;
+            box.style.backgroundColor = color;
+            code.innerHTML = color;
+        }
+        )
+
+        function random_hex() {
+            return ran_index = Math.floor(Math.random() * 16);
+        }
+
+    </script>
+</body>
+
+</html>
